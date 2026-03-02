@@ -1,0 +1,127 @@
+:root {
+  font-family: "Segoe UI", sans-serif;
+  color: #eef7ff;
+  background: #02060c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #02060c;
+}
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #02060c;
+}
+
+#video,
+#three,
+#overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#video {
+  object-fit: cover;
+  transform: scaleX(-1);
+  filter: saturate(1.04) contrast(1.02) brightness(0.9);
+}
+
+#three {
+  pointer-events: auto;
+  touch-action: none;
+  z-index: 1;
+}
+
+#overlay {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hud {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.hud-block {
+  min-width: 120px;
+  padding: 12px 14px;
+  border: 1px solid rgba(150, 206, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(4, 11, 22, 0.5);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+.hud-help {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.hud-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #8fd5ff;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hud-help span,
+.hud-block span:last-child {
+  color: rgba(238, 247, 255, 0.96);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.hud b {
+  color: #8fd5ff;
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .hud {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hud-block {
+    min-width: unset;
+  }
+
+  .hud-help {
+    width: 100%;
+    margin-left: 0;
+  }
+}
